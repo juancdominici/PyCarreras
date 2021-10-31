@@ -28,11 +28,6 @@ namespace CarreraFrontend
             frmNuevo.ShowDialog();
         }
 
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmAltaCarrera frmNuevo = new FrmAltaCarrera(Accion.CREATE, 0);
-            frmNuevo.ShowDialog();
-        }
 
         private void consultaDeCarreraToolStripMenuItem_Click(object sender, EventArgs e)
         {

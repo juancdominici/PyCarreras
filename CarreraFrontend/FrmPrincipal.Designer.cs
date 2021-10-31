@@ -35,7 +35,6 @@ namespace CarreraFrontend
             this.soporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarAsignaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeCarreraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,7 +70,7 @@ namespace CarreraFrontend
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -93,18 +92,10 @@ namespace CarreraFrontend
             // presupuestoToolStripMenuItem
             // 
             this.presupuestoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoToolStripMenuItem,
             this.consultaDeCarreraToolStripMenuItem});
             this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
-            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.presupuestoToolStripMenuItem.Text = "Carreras";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nuevoToolStripMenuItem.Text = "Nueva Carrera";
-            this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
+            this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.presupuestoToolStripMenuItem.Text = "Transacción";
             // 
             // consultaDeCarreraToolStripMenuItem
             // 
@@ -124,7 +115,7 @@ namespace CarreraFrontend
             // reporteToolStripMenuItem
             // 
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
-            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.reporteToolStripMenuItem.Text = "Reporte";
             this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
@@ -166,7 +157,6 @@ namespace CarreraFrontend
         private System.Windows.Forms.ToolStripMenuItem soporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarAsignaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaDeCarreraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
