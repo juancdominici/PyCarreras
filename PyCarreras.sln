@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraBackend", "..\CarpinteriaBackend\CarreraBackend.csproj", "{B77640B1-C3CE-480E-888A-8ABF99ECC973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraBackend", "..\CarreraBackend\CarreraBackend.csproj", "{B77640B1-C3CE-480E-888A-8ABF99ECC973}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraWebAPI", "..\CarpinteriaWebAPI\CarreraWebAPI.csproj", "{C43CEE12-9529-4595-8B24-6F55B7C43251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraWebAPI", "..\CarreraWebAPI\CarreraWebAPI.csproj", "{C43CEE12-9529-4595-8B24-6F55B7C43251}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraFrontend", "..\CarpinteriaFrontend\CarreraFrontend.csproj", "{CD9AD5E1-2FF9-42A3-A176-25D727F6F3CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarreraFrontend", "..\CarreraFrontend\CarreraFrontend.csproj", "{CD9AD5E1-2FF9-42A3-A176-25D727F6F3CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
