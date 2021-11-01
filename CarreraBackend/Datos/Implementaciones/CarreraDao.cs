@@ -100,8 +100,7 @@ namespace CarreraBackend.Datos.Implementaciones
                     esPrimerRegistro = false;
                 }
                 DetalleCarrera detalleCarrera = new DetalleCarrera();
-                Materia asignatura = new Materia();
-                asignatura.Nombre = reader["N_MATERIA"].ToString();
+                Materia asignatura = new Materia((int)reader["ID_MATERIA"], reader["N_MATERIA"].ToString());
                 detalleCarrera.AnioCursado = Convert.ToDateTime(reader["ANIO_CURSADO"]);
                 detalleCarrera.Materia = asignatura;
                 detalleCarrera.Cuatrimestre = Convert.ToInt32(reader["CUATRIMESTRE"]);
@@ -111,27 +110,9 @@ namespace CarreraBackend.Datos.Implementaciones
             return carrera;
         }
 
-        public List<Materia> GetMaterias()
-        {
-            List<Materia> lst = new List<Materia>();
-            conexion.Open();
-            SqlCommand comando = new SqlCommand("SP_CONSULTAR_MATERIAS", conexion);
-            comando.CommandType = CommandType.StoredProcedure;
-            DataTable tabla = new DataTable();
-            tabla.Load(comando.ExecuteReader());
-            conexion.Close();
+        
 
-            foreach (DataRow row in tabla.Rows)
-            {
-                Materia asignatura = new Materia();
-                asignatura.Nombre = row["N_MATERIA"].ToString();
-
-                lst.Add(asignatura);
-            }
-            return lst;
-        }
-
-        public bool Save(Carrera carrera)
+        public bool SaveCarrera(Carrera carrera)
         {
             SqlTransaction t = null;
 
@@ -164,7 +145,7 @@ namespace CarreraBackend.Datos.Implementaciones
                     cmd.Parameters.AddWithValue("@ID_DETALLE", ++nroDetalle);
                     cmd.Parameters.AddWithValue("@ANIO_CURSADO", d.AnioCursado);
                     cmd.Parameters.AddWithValue("@CUATRIMESTRE", d.Cuatrimestre);
-                    cmd.Parameters.AddWithValue("@ID_MATERIA", d.Materia.Nombre);
+                    cmd.Parameters.AddWithValue("@ID_MATERIA", d.Materia.Id);
                     cmd.ExecuteNonQuery();
                 }
                 t.Commit();
@@ -183,34 +164,34 @@ namespace CarreraBackend.Datos.Implementaciones
             }
             return flag;
         }
-        public int GetNumeroMateria()
+
+        public int GetNumeroCarrera()
         {
-            SqlConnection cnn = new SqlConnection();
             SqlCommand cmd = new SqlCommand();
             try
             {
-                cnn.Open();
-                cmd.Connection = cnn;
+                conexion.Open();
+                cmd.Connection = conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_PROXIMO_ID";
+                cmd.CommandText = "SP_PROXIMO_ID_CARRERA";
 
                 SqlParameter param = new SqlParameter("@next", SqlDbType.Int);
                 param.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(param);
 
                 cmd.ExecuteNonQuery();
-                cnn.Close();
-
+                conexion.Close();
+                if (param.Value == System.DBNull.Value) return 1;
                 return (int)param.Value;
             }
             catch (SqlException ex)
             {
 
-                throw (ex);
+                throw;
             }
             finally
             {
-                if (cnn.State == ConnectionState.Open) cnn.Close();
+                if (conexion.State == ConnectionState.Open) conexion.Close();
             }
         }
     }

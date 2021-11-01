@@ -40,6 +40,7 @@ namespace CarreraFrontend
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.altaDeCarrerasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,7 +93,8 @@ namespace CarreraFrontend
             // presupuestoToolStripMenuItem
             // 
             this.presupuestoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultaDeCarreraToolStripMenuItem});
+            this.consultaDeCarreraToolStripMenuItem,
+            this.altaDeCarrerasToolStripMenuItem});
             this.presupuestoToolStripMenuItem.Name = "presupuestoToolStripMenuItem";
             this.presupuestoToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.presupuestoToolStripMenuItem.Text = "Transacción";
@@ -134,6 +136,13 @@ namespace CarreraFrontend
             this.acercaDeToolStripMenuItem.Text = "Acerca de..";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
+            // altaDeCarrerasToolStripMenuItem
+            // 
+            this.altaDeCarrerasToolStripMenuItem.Name = "altaDeCarrerasToolStripMenuItem";
+            this.altaDeCarrerasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.altaDeCarrerasToolStripMenuItem.Text = "Alta de Carreras";
+            this.altaDeCarrerasToolStripMenuItem.Click += new System.EventHandler(this.altaDeCarrerasToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -162,5 +171,6 @@ namespace CarreraFrontend
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem altaDeCarrerasToolStripMenuItem;
     }
 }

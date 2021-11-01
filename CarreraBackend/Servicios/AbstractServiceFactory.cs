@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarreraBackend.Servicios.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace CarreraBackend.Servicios
 {
     public abstract class AbstractServiceFactory
     {
-         public abstract IService CrearService();
+        public abstract IService CrearCarreraService();
+        public abstract IMateriaService CrearMateriaService();
     }
 }

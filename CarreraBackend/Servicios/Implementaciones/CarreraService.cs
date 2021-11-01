@@ -11,41 +11,38 @@ namespace CarreraBackend.Servicios
 {
     class CarreraService : IService
     {
-        private ICarreraDao dao;
+        private ICarreraDao carreraDao;
 
         public CarreraService()
         {
-            dao = new CarreraDao();
+            carreraDao = new CarreraDao();
         }
 
         public List<Carrera> ConsultarCarrera(List<Parametro> criterios)
         {
-            return dao.GetByFilters(criterios);
-        }
-
-        public List<Materia> ConsultarAsignatura()
-        {
-            return dao.GetMaterias();
+            return carreraDao.GetByFilters(criterios);
         }
 
         public bool GrabarCarrera(Carrera carrera)
         {
-            return dao.Save(carrera);
+            return carreraDao.SaveCarrera(carrera);
         }
 
         public Carrera ObtenerCarreraPorId(int nro)
         {
-            return dao.GetById(nro);
+            return carreraDao.GetById(nro);
         }
 
         public bool RegistrarBajaCarrera(int carrera)
         {
-            return dao.Delete(carrera);
+            return carreraDao.Delete(carrera);
         }
 
-        public int ObtenerUltimoIdMateria()
+        public int ObtenerUltimoIdCarrera()
         {
-            return dao.GetNumeroMateria();
+            return carreraDao.GetNumeroCarrera();
         }
+
+
     }
 }

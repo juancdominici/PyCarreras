@@ -29,252 +29,253 @@ namespace CarreraFrontend
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.dtvDetalles = new System.Windows.Forms.DataGridView();
-            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aniodecursado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuatrimestre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.cboMateria = new System.Windows.Forms.ComboBox();
-            this.dtpAnioCursado = new System.Windows.Forms.DateTimePicker();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblNro = new System.Windows.Forms.Label();
-            this.txtCuatrimestre = new System.Windows.Forms.TextBox();
-            this.lblCuatrimestre = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dtvDetalles)).BeginInit();
+            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvResultados = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnCancelar
+            // groupBox1
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(378, 414);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(136, 23);
-            this.btnCancelar.TabIndex = 37;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(225, 414);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(136, 23);
-            this.btnAceptar.TabIndex = 36;
-            this.btnAceptar.Text = "Aceptar";
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // dtvDetalles
-            // 
-            this.dtvDetalles.AllowUserToAddRows = false;
-            this.dtvDetalles.AllowUserToDeleteRows = false;
-            this.dtvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.detalle,
-            this.aniodecursado,
-            this.cuatrimestre,
-            this.materias,
-            this.acciones});
-            this.dtvDetalles.Location = new System.Drawing.Point(98, 227);
-            this.dtvDetalles.Name = "dtvDetalles";
-            this.dtvDetalles.ReadOnly = true;
-            this.dtvDetalles.RowHeadersWidth = 51;
-            this.dtvDetalles.RowTemplate.Height = 24;
-            this.dtvDetalles.Size = new System.Drawing.Size(608, 159);
-            this.dtvDetalles.TabIndex = 35;
-            // 
-            // detalle
-            // 
-            this.detalle.HeaderText = "Column1";
-            this.detalle.MinimumWidth = 6;
-            this.detalle.Name = "detalle";
-            this.detalle.ReadOnly = true;
-            this.detalle.Visible = false;
-            this.detalle.Width = 125;
-            // 
-            // aniodecursado
-            // 
-            this.aniodecursado.HeaderText = "Año de Cursado";
-            this.aniodecursado.MinimumWidth = 6;
-            this.aniodecursado.Name = "aniodecursado";
-            this.aniodecursado.ReadOnly = true;
-            this.aniodecursado.Width = 175;
-            // 
-            // cuatrimestre
-            // 
-            this.cuatrimestre.HeaderText = "Cuatrimestre";
-            this.cuatrimestre.MinimumWidth = 6;
-            this.cuatrimestre.Name = "cuatrimestre";
-            this.cuatrimestre.ReadOnly = true;
-            this.cuatrimestre.Width = 135;
-            // 
-            // materias
-            // 
-            this.materias.HeaderText = "Materias";
-            this.materias.MinimumWidth = 6;
-            this.materias.Name = "materias";
-            this.materias.ReadOnly = true;
-            this.materias.Width = 135;
-            // 
-            // acciones
-            // 
-            this.acciones.HeaderText = "Acciones";
-            this.acciones.MinimumWidth = 6;
-            this.acciones.Name = "acciones";
-            this.acciones.ReadOnly = true;
-            this.acciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.acciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.acciones.Text = "Quitar";
-            this.acciones.Width = 140;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(606, 188);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(136, 33);
-            this.btnAgregar.TabIndex = 34;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // cboMateria
-            // 
-            this.cboMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMateria.FormattingEnabled = true;
-            this.cboMateria.Location = new System.Drawing.Point(382, 193);
-            this.cboMateria.Name = "cboMateria";
-            this.cboMateria.Size = new System.Drawing.Size(218, 24);
-            this.cboMateria.TabIndex = 33;
-            // 
-            // dtpAnioCursado
-            // 
-            this.dtpAnioCursado.Location = new System.Drawing.Point(215, 151);
-            this.dtpAnioCursado.Name = "dtpAnioCursado";
-            this.dtpAnioCursado.Size = new System.Drawing.Size(200, 22);
-            this.dtpAnioCursado.TabIndex = 32;
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Location = new System.Drawing.Point(215, 110);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(299, 22);
-            this.txtTitulo.TabIndex = 31;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(215, 65);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(299, 22);
-            this.txtNombre.TabIndex = 30;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.txtTitulo);
+            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.dtpHasta);
+            this.groupBox1.Controls.Add(this.dtpDesde);
+            this.groupBox1.Controls.Add(this.btnConsultar);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(775, 222);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Criterios de Busqueda";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(95, 151);
+            this.label4.Location = new System.Drawing.Point(375, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 17);
-            this.label4.TabIndex = 29;
-            this.label4.Text = "Año de Cursado:";
+            this.label4.Size = new System.Drawing.Size(72, 15);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Fecha hasta:";
             // 
-            // lblTitulo
+            // label3
             // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(133, 110);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(47, 17);
-            this.lblTitulo.TabIndex = 28;
-            this.lblTitulo.Text = "Titulo:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(67, 129);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 15);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Titulo:";
             // 
-            // lblNombre
+            // label2
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(133, 68);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(62, 17);
-            this.lblNombre.TabIndex = 27;
-            this.lblNombre.Text = "Nombre:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 100);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 15);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Nombre:";
             // 
-            // lblNro
+            // label1
             // 
-            this.lblNro.AutoSize = true;
-            this.lblNro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNro.Location = new System.Drawing.Point(146, 14);
-            this.lblNro.Name = "lblNro";
-            this.lblNro.Size = new System.Drawing.Size(128, 25);
-            this.lblNro.TabIndex = 26;
-            this.lblNro.Text = "Carrera #: 1";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(32, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 15);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Fecha desde:";
             // 
-            // txtCuatrimestre
+            // txtTitulo
             // 
-            this.txtCuatrimestre.Location = new System.Drawing.Point(194, 193);
-            this.txtCuatrimestre.Name = "txtCuatrimestre";
-            this.txtCuatrimestre.Size = new System.Drawing.Size(182, 22);
-            this.txtCuatrimestre.TabIndex = 38;
+            this.txtTitulo.Location = new System.Drawing.Point(113, 126);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(568, 23);
+            this.txtTitulo.TabIndex = 8;
             // 
-            // lblCuatrimestre
+            // txtNombre
             // 
-            this.lblCuatrimestre.AutoSize = true;
-            this.lblCuatrimestre.Location = new System.Drawing.Point(96, 196);
-            this.lblCuatrimestre.Name = "lblCuatrimestre";
-            this.lblCuatrimestre.Size = new System.Drawing.Size(92, 17);
-            this.lblCuatrimestre.TabIndex = 39;
-            this.lblCuatrimestre.Text = "Cuatrimestre:";
+            this.txtNombre.Location = new System.Drawing.Point(113, 97);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(568, 23);
+            this.txtNombre.TabIndex = 7;
+            // 
+            // dtpHasta
+            // 
+            this.dtpHasta.Location = new System.Drawing.Point(453, 68);
+            this.dtpHasta.Name = "dtpHasta";
+            this.dtpHasta.Size = new System.Drawing.Size(228, 23);
+            this.dtpHasta.TabIndex = 6;
+            // 
+            // dtpDesde
+            // 
+            this.dtpDesde.Location = new System.Drawing.Point(113, 68);
+            this.dtpDesde.Name = "dtpDesde";
+            this.dtpDesde.Size = new System.Drawing.Size(228, 23);
+            this.dtpDesde.TabIndex = 5;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(646, 174);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(123, 42);
+            this.btnConsultar.TabIndex = 4;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(13, 415);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(123, 42);
+            this.btnEditar.TabIndex = 1;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(142, 415);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(123, 42);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(665, 415);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(123, 42);
+            this.btnSalir.TabIndex = 3;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvResultados);
+            this.groupBox2.Location = new System.Drawing.Point(13, 241);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(775, 160);
+            this.groupBox2.TabIndex = 4;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultados";
+            // 
+            // dgvResultados
+            // 
+            this.dgvResultados.AllowUserToAddRows = false;
+            this.dgvResultados.AllowUserToDeleteRows = false;
+            this.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nombre,
+            this.titulo,
+            this.fecha,
+            this.acciones});
+            this.dgvResultados.Location = new System.Drawing.Point(7, 23);
+            this.dgvResultados.Name = "dgvResultados";
+            this.dgvResultados.RowTemplate.Height = 25;
+            this.dgvResultados.Size = new System.Drawing.Size(762, 131);
+            this.dgvResultados.TabIndex = 0;
+            this.dgvResultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 250;
+            // 
+            // titulo
+            // 
+            this.titulo.HeaderText = "Titulo";
+            this.titulo.Name = "titulo";
+            this.titulo.Width = 250;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            // 
+            // acciones
+            // 
+            this.acciones.HeaderText = "Acciones";
+            this.acciones.Name = "acciones";
+            this.acciones.Text = "Ver";
+            this.acciones.UseColumnTextForButtonValue = true;
             // 
             // FrmConsultaCarrera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblCuatrimestre);
-            this.Controls.Add(this.txtCuatrimestre);
-            this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.dtvDetalles);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.cboMateria);
-            this.Controls.Add(this.dtpAnioCursado);
-            this.Controls.Add(this.txtTitulo);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.lblTitulo);
-            this.Controls.Add(this.lblNombre);
-            this.Controls.Add(this.lblNro);
+            this.ClientSize = new System.Drawing.Size(800, 470);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnEditar);
+            this.Controls.Add(this.groupBox1);
             this.Name = "FrmConsultaCarrera";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmConsultaCarrera";
-            this.Load += new System.EventHandler(this.FrmConsultaCarreraLoad);
-            ((System.ComponentModel.ISupportInitialize)(this.dtvDetalles)).EndInit();
+            this.Text = "FrmReporte";
+            this.Load += new System.EventHandler(this.FrmReporte_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.DataGridView dtvDetalles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn detalle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aniodecursado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cuatrimestre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materias;
-        private System.Windows.Forms.DataGridViewButtonColumn acciones;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ComboBox cboMateria;
-        private System.Windows.Forms.DateTimePicker dtpAnioCursado;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView dgvResultados;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblNro;
-        private System.Windows.Forms.TextBox txtCuatrimestre;
-        private System.Windows.Forms.Label lblCuatrimestre;
+        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.DataGridViewButtonColumn acciones;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarreraBackend.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace CarreraFrontend
 {
     public partial class FrmPrincipal : Form
     {
+        private IService servicio;
+
         public FrmPrincipal()
         {
             InitializeComponent();
+            servicio = new ServiceFactoryImp().CrearCarreraService();
+
         }
 
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -24,8 +29,8 @@ namespace CarreraFrontend
 
         private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReporte frmNuevo = new FrmReporte();
-            frmNuevo.ShowDialog();
+        //    FrmReporte frmNuevo = new FrmReporte();
+        //    frmNuevo.ShowDialog();
         }
 
 
@@ -47,6 +52,12 @@ namespace CarreraFrontend
             {
                 this.Dispose();
             }
+        }
+
+        private void altaDeCarrerasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAltaCarrera frmNuevo = new FrmAltaCarrera(Accion.CREATE, servicio.ObtenerUltimoIdCarrera());
+            frmNuevo.ShowDialog();
         }
     }
 }

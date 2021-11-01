@@ -17,7 +17,7 @@ namespace CarreraWebAPI.Controllers
 
         public CarreraController()
         {
-            service = new ServiceFactoryImp().CrearService();
+            service = new ServiceFactoryImp().CrearCarreraService();
         }
 
         //// GET api/<PresupuestosController>/5

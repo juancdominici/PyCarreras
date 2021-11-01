@@ -12,9 +12,9 @@ namespace CarreraBackend.Datos.Interfaces
     {
         bool Delete(int nro);
         List<Carrera> GetByFilters(List<Parametro> criterios);
-        List<Materia> GetMaterias();
-        bool Save(Carrera carrera);
+        bool SaveCarrera(Carrera carrera);
+
         Carrera GetById(int id);
-        int GetNumeroMateria();
+        int GetNumeroCarrera();
     }
 }

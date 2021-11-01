@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarreraBackend.Servicios.Implementaciones;
+using CarreraBackend.Servicios.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +10,13 @@ namespace CarreraBackend.Servicios
 {
     public class ServiceFactoryImp : AbstractServiceFactory
     {
-        public override IService CrearService()
+        public override IService CrearCarreraService()
         {
             return new CarreraService();
+        }
+        public override IMateriaService CrearMateriaService()
+        {
+            return new MateriaService();
         }
     }
 }
