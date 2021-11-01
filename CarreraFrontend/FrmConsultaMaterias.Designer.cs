@@ -30,11 +30,13 @@ namespace CarreraFrontend
         private void InitializeComponent()
         {
             this.dtvDetalles = new System.Windows.Forms.DataGridView();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvDetalles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,6 +46,7 @@ namespace CarreraFrontend
             this.dtvDetalles.AllowUserToDeleteRows = false;
             this.dtvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtvDetalles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.Nombre,
             this.acciones});
             this.dtvDetalles.Location = new System.Drawing.Point(280, 26);
@@ -55,26 +58,6 @@ namespace CarreraFrontend
             this.dtvDetalles.TabIndex = 35;
             this.dtvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvDetalles_CellContentClick);
             this.dtvDetalles.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dtvDetalles_RowsRemoved);
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.MinimumWidth = 6;
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 135;
-            // 
-            // acciones
-            // 
-            this.acciones.HeaderText = "Acciones";
-            this.acciones.MinimumWidth = 6;
-            this.acciones.Name = "acciones";
-            this.acciones.ReadOnly = true;
-            this.acciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.acciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.acciones.Text = "Quitar";
-            this.acciones.UseColumnTextForButtonValue = true;
-            this.acciones.Width = 140;
             // 
             // btnAgregar
             // 
@@ -102,11 +85,49 @@ namespace CarreraFrontend
             this.lblNombre.TabIndex = 39;
             this.lblNombre.Text = "Nombre:";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(32, 126);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(220, 31);
+            this.btnCancelar.TabIndex = 40;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.MinimumWidth = 6;
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 135;
+            // 
+            // acciones
+            // 
+            this.acciones.HeaderText = "Acciones";
+            this.acciones.MinimumWidth = 6;
+            this.acciones.Name = "acciones";
+            this.acciones.ReadOnly = true;
+            this.acciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.acciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.acciones.Text = "Quitar";
+            this.acciones.UseColumnTextForButtonValue = true;
+            this.acciones.Width = 140;
+            // 
             // FrmConsultaMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(656, 315);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.dtvDetalles);
@@ -126,6 +147,8 @@ namespace CarreraFrontend
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewButtonColumn acciones;
     }

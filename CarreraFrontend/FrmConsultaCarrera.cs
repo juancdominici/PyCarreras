@@ -25,35 +25,27 @@ namespace CarreraFrontend
         }
 
 
-        private void FrmReporte_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private async void btnConsultar_Click(object sender, EventArgs e)
         {
             List<Parametro> filtros = new List<Parametro>();
-            Parametro fecha_desde = new Parametro();
-            fecha_desde.Nombre = "@fecha_desde";
-            fecha_desde.Valor = dtpDesde.Value.ToShortDateString();
-            filtros.Add(fecha_desde);
-            filtros.Add(new Parametro("@fecha_hasta", dtpHasta.Value.ToShortDateString()));
 
             object val = DBNull.Value;
             if (!String.IsNullOrEmpty(txtNombre.Text))
+            {
                 val = txtNombre.Text;
-            filtros.Add(new Parametro("@nombre", val));
-
+                filtros.Add(new Parametro("@NOMBRE", val));
+            }
             if (!String.IsNullOrEmpty(txtTitulo.Text))
+            {
                 val = txtTitulo.Text;
-            filtros.Add(new Parametro("@titulo", val));
-
+                filtros.Add(new Parametro("@TITULO", val));
+            }
 
 
             List<Carrera> lst = null;
 
             string filtrosJSON = JsonConvert.SerializeObject(filtros);
-            string url = "https://localhost:44373/api/Carreras/consultar";
+            string url = "https://localhost:44373/api/Carrera/consultar";
 
             var resultado = await ClienteSingleton.GetInstancia().PostAsync(url, filtrosJSON);
 
@@ -65,6 +57,7 @@ namespace CarreraFrontend
             foreach (Carrera Carrera in lst)
             {
                 dgvResultados.Rows.Add(new object[]{
+                                        Carrera.Id,
                                         Carrera.Nombre,
                                         Carrera.Titulo
                  }); ;
@@ -84,10 +77,9 @@ namespace CarreraFrontend
             DataGridViewRow row = dgvResultados.CurrentRow;
             if (row != null)
             {
-                int carrera = Int32.Parse(row.Cells["id"].Value.ToString());
                 if (MessageBox.Show("Seguro que desea eliminar la carrera seleccionada?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    bool respuesta = servicio.RegistrarBajaCarrera(carrera);
+                    bool respuesta = servicio.RegistrarBajaCarrera(Convert.ToInt32(row.Cells[0].Value));
 
                     if (respuesta)
                     {
@@ -107,10 +99,9 @@ namespace CarreraFrontend
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Si el índice de la columna de la fila actual es 6: (botón Ver detalles)
-            if (dgvResultados.CurrentCell.ColumnIndex == 6)
+            if (dgvResultados.CurrentCell.ColumnIndex == 3)
             {
-                int nroCarrera = Convert.ToInt32(dgvResultados.CurrentRow.Cells["id"].Value.ToString());
+                int nroCarrera = Convert.ToInt32(dgvResultados.CurrentRow.Cells[0].Value);
                 FrmAltaCarrera frm = new FrmAltaCarrera(Accion.READ, nroCarrera);
                 frm.ShowDialog();
             }

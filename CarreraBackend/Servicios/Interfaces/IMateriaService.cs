@@ -12,6 +12,7 @@ namespace CarreraBackend.Servicios.Interfaces
         List<Materia> ConsultarAsignatura();
         int ObtenerUltimoIdMateria();
         bool GrabarMateria(Materia materia);
-
+        bool ModificarMateria(Materia materia);
+        bool BorrarMateria(Materia materia);
     }
 }

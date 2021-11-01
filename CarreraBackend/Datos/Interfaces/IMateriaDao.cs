@@ -11,6 +11,8 @@ namespace CarreraBackend.Datos.Interfaces
     {
         List<Materia> GetMaterias();
         bool SaveMateria(Materia materia);
+        bool UpdateMateria(Materia materia);
+        bool DeleteMateria(Materia materia);
         int GetNumeroMateria();
 
     }

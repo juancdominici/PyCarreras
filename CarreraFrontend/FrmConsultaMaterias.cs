@@ -34,9 +34,11 @@ namespace CarreraFrontend
                 DataGridViewRow newRow = new DataGridViewRow();
 
                 newRow.CreateCells(dtvDetalles);
-                newRow.Cells[0].Value = list[i];
+                newRow.Cells[0].Value = list[i].Id;
+                newRow.Cells[1].Value = list[i].Nombre;
                 dtvDetalles.Rows.Add(newRow);
             }
+            btnCancelar.Enabled = false;
         }
 
 
@@ -54,28 +56,51 @@ namespace CarreraFrontend
                 txtNombre.Focus();
                 return;
             }
-            if (flag) CargarMateria();
+            if (!flag) CargarMateria();
             else ModificarMateria();
         }
 
         private void ModificarMateria()
         {
-            //servicio.ModificarMateria(new Materia(txtNombre.Text));
-            dtvDetalles.CurrentCell.Value = txtNombre.Text;
+            if (servicio.ModificarMateria(new Materia((int)dtvDetalles.CurrentRow.Cells[0].Value, txtNombre.Text)))
+            {
+                MessageBox.Show("Materia modificada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dtvDetalles.CurrentCell.Value = txtNombre.Text;
 
-            txtNombre.Text = "";
+                txtNombre.Text = "";
+                btnAgregar.Text = "Agregar";
+                dtvDetalles.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar modificar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
 
         private void CargarMateria()
         {
-            //servicio.GrabarMateria(new Materia(txtNombre.Text));
-            DataGridViewRow newRow = new DataGridViewRow();
+            if (servicio.GrabarMateria(new Materia(servicio.ObtenerUltimoIdMateria(), txtNombre.Text)))
+            {
+                MessageBox.Show("Materia guardada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataGridViewRow newRow = new DataGridViewRow();
 
-            newRow.CreateCells(dtvDetalles);
-            newRow.Cells[0].Value = txtNombre.Text;
-            dtvDetalles.Rows.Add(newRow);
+                newRow.CreateCells(dtvDetalles);
+                newRow.Cells[0].Value = servicio.ObtenerUltimoIdMateria() - 1;
+                newRow.Cells[1].Value = txtNombre.Text;
+                dtvDetalles.Rows.Add(newRow);
 
-            txtNombre.Text = "";
+                txtNombre.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Error al intentar grabar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+
         }
 
         private bool ExisteProductoEnGrilla(string text)
@@ -89,17 +114,28 @@ namespace CarreraFrontend
         }
         private void dtvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dtvDetalles.CurrentCell.ColumnIndex == 0)
+            
+            if (dtvDetalles.CurrentCell.ColumnIndex == 2)
             {
-                txtNombre.Text = dtvDetalles.SelectedCells[0].Value.ToString();
-                btnAgregar.Text = "Modificar";
-                flag = true;
-                //modificar
+                if (servicio.BorrarMateria(new Materia((int)dtvDetalles.CurrentRow.Cells[0].Value, txtNombre.Text)))
+                {
+                    MessageBox.Show("Materia borrada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dtvDetalles.Rows.RemoveAt(dtvDetalles.CurrentRow.Index);
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar borrar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
-            if (dtvDetalles.CurrentCell.ColumnIndex == 1)
+            else
             {
-                dtvDetalles.Rows.RemoveAt(dtvDetalles.CurrentRow.Index);
-                //quitar
+                
+                    txtNombre.Text = dtvDetalles.SelectedCells[0].Value.ToString();
+                    btnAgregar.Text = "Modificar";
+                    flag = true;
+                    btnCancelar.Enabled = true;
+                
             }
         }
 
@@ -113,6 +149,15 @@ namespace CarreraFrontend
                 btnAgregar.Text = "Agregar";
                 flag = false;
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = "";
+            btnAgregar.Text = "Agregar";
+            flag = false;
+            btnCancelar.Enabled = false;
+            dtvDetalles.ClearSelection();
         }
     }
 }

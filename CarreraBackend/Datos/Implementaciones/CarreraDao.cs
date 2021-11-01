@@ -17,7 +17,7 @@ namespace CarreraBackend.Datos.Implementaciones
         public bool Delete(int nro)
         {
             SqlTransaction t = null;
-            int affected = 0;
+            bool affected = true;
 
             try
             {
@@ -25,13 +25,15 @@ namespace CarreraBackend.Datos.Implementaciones
                 t = conexion.BeginTransaction();
                 SqlCommand comando = new SqlCommand("SP_REGISTRAR_BAJA_CARRERA", conexion, t);
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@ID_CARRERA", nro); //falta nueva carrera
-                affected = comando.ExecuteNonQuery();
+                comando.Parameters.AddWithValue("@ID_CARRERA", nro);
+                comando.ExecuteNonQuery();
+                
                 t.Commit();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 t.Rollback();
+                affected = false;
             }
             finally
             {
@@ -40,7 +42,7 @@ namespace CarreraBackend.Datos.Implementaciones
                     conexion.Close();
                 }
             }
-            return affected == 1;
+            return affected;
 
         }
 
@@ -55,7 +57,7 @@ namespace CarreraBackend.Datos.Implementaciones
                 comando.CommandType = CommandType.StoredProcedure;
                 foreach (Parametro p in criterios)
                 {
-                    comando.Parameters.AddWithValue(p.Nombre, p.Valor);
+                    comando.Parameters.AddWithValue(p.Nombre, p.Valor.ToString());
                 }
 
                 tabla.Load(comando.ExecuteReader());
@@ -63,6 +65,7 @@ namespace CarreraBackend.Datos.Implementaciones
                 foreach (DataRow row in tabla.Rows)
                 {
                     Carrera carrera = new Carrera();
+                    carrera.Id = row["ID_CARRERA"].ToString();
                     carrera.Nombre = row["N_CARRERA"].ToString();
                     carrera.Titulo = row["N_TITULO"].ToString();
 
@@ -71,7 +74,7 @@ namespace CarreraBackend.Datos.Implementaciones
 
                 conexion.Close();
             }
-            catch (SqlException)
+            catch (SqlException ex)
             {
                 lst = null;
             }

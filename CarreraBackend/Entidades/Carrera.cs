@@ -11,6 +11,7 @@ namespace CarreraBackend.Entidades
     public class Carrera
     {
         //PROPIEDADES
+        public string Id { get; set; }
         public string Nombre { get; set; }
         public string Titulo { get; set; }
         public List<DetalleCarrera> Detalles { get; set; }

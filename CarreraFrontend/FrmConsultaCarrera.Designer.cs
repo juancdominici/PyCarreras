@@ -47,7 +47,6 @@ namespace CarreraFrontend
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -195,7 +194,6 @@ namespace CarreraFrontend
             this.id,
             this.nombre,
             this.titulo,
-            this.fecha,
             this.acciones});
             this.dgvResultados.Location = new System.Drawing.Point(7, 23);
             this.dgvResultados.Name = "dgvResultados";
@@ -222,11 +220,6 @@ namespace CarreraFrontend
             this.titulo.Name = "titulo";
             this.titulo.Width = 250;
             // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            // 
             // acciones
             // 
             this.acciones.HeaderText = "Acciones";
@@ -245,8 +238,7 @@ namespace CarreraFrontend
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmConsultaCarrera";
-            this.Text = "FrmReporte";
-            this.Load += new System.EventHandler(this.FrmReporte_Load);
+            this.Text = "Consulta de Carreras";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -275,7 +267,6 @@ namespace CarreraFrontend
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewButtonColumn acciones;
     }
 }

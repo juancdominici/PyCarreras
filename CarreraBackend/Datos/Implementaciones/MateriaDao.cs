@@ -48,6 +48,70 @@ namespace CarreraBackend.Datos.Implementaciones
 
                 t.Commit();
             }
+            catch(Exception ex)
+            {
+                var e = ex;
+                t.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return flag;
+        }
+        public bool UpdateMateria(Materia materia)
+        {
+            SqlTransaction t = null;
+
+            bool flag = true;
+            try
+            {
+                conexion.Open();
+                t = conexion.BeginTransaction();
+
+                SqlCommand comando = new SqlCommand("SP_ACTUALIZAR_MATERIA", conexion, t);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@ID_MATERIA", materia.Id);
+                comando.Parameters.AddWithValue("@NOM_MATERIA", materia.Nombre);
+                comando.ExecuteNonQuery();
+
+                t.Commit();
+            }
+            catch
+            {
+                t.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return flag;
+        }
+        public bool DeleteMateria(Materia materia)
+        {
+            SqlTransaction t = null;
+
+            bool flag = true;
+            try
+            {
+                conexion.Open();
+                t = conexion.BeginTransaction();
+
+                SqlCommand comando = new SqlCommand("SP_BORRAR_MATERIA", conexion, t);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@ID_MATERIA", materia.Id);
+                comando.ExecuteNonQuery();
+
+                t.Commit();
+            }
             catch
             {
                 t.Rollback();
@@ -70,7 +134,7 @@ namespace CarreraBackend.Datos.Implementaciones
                 conexion.Open();
                 cmd.Connection = conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.CommandText = "SP_PROXIMO_ID_MATERIA";
+                cmd.CommandText = "SP_PROXIMO_ID_MATERIAS";
 
                 SqlParameter param = new SqlParameter("@next", SqlDbType.Int);
                 param.Direction = ParameterDirection.Output;

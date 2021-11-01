@@ -55,7 +55,6 @@ namespace CarreraFrontend
         }
         private async Task CargarCarreraAsync(int nro)
         {
-            lblNro.Text = "Carrera #"+ servicio.ObtenerCarreraPorId(nro) + ":";
             string url = "https://localhost:44373/api/Carrera/" + nro.ToString();
             var resultado = await ClienteSingleton.GetInstancia().GetAsync(url);
             this.carrera = JsonConvert.DeserializeObject<Carrera>(resultado);

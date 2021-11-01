@@ -32,6 +32,13 @@ namespace CarreraBackend.Servicios.Implementaciones
         {
             return dao.SaveMateria(materia);
         }
-
+        public bool ModificarMateria(Materia materia)
+        {
+            return dao.UpdateMateria(materia);
+        }
+        public bool BorrarMateria(Materia materia)
+        {
+            return dao.DeleteMateria(materia);
+        }
     }
 }
