@@ -186,13 +186,20 @@ namespace CarreraBackend.Datos.Implementaciones
                 
                 comando.ExecuteNonQuery();
 
+                SqlCommand comando2 = new SqlCommand("SP_BORRAR_DETALLE", conexion, t);
+                comando2.CommandType = CommandType.StoredProcedure;
+                comando2.Parameters.AddWithValue("@ID_CARRERA", carrera.Id);
+
+                comando2.ExecuteNonQuery();
+
+                int nroDetalle = 0;
                 foreach (DetalleCarrera d in carrera.Detalles)
                 {
-                    SqlCommand cmd = new SqlCommand("SP_ACTUALIZAR_DETALLE", conexion);
+                    SqlCommand cmd = new SqlCommand("SP_INSERTAR_DETALLE", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Transaction = t;
-                    cmd.Parameters.AddWithValue("@ID_DETALLE", d.Id);
                     cmd.Parameters.AddWithValue("@ID_CARRERA", carrera.Id);
+                    cmd.Parameters.AddWithValue("@ID_DETALLE", ++nroDetalle);
                     cmd.Parameters.AddWithValue("@ANIO_CURSADO", d.AnioCursado);
                     cmd.Parameters.AddWithValue("@CUATRIMESTRE", d.Cuatrimestre);
                     cmd.Parameters.AddWithValue("@ID_MATERIA", d.Materia.Id);
