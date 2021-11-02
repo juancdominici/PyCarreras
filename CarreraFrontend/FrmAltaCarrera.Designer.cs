@@ -266,7 +266,7 @@ namespace CarreraFrontend
             this.Controls.Add(this.gpbMaterias);
             this.Name = "FrmAltaCarrera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta de Carreras";
+            this.Text = "Alta de Carreras";
             this.Load += new System.EventHandler(this.FrmConsultaCarreraLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dtvDetalles)).EndInit();
             this.gpbMaterias.ResumeLayout(false);

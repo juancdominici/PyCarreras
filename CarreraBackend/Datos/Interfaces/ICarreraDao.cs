@@ -13,8 +13,9 @@ namespace CarreraBackend.Datos.Interfaces
         bool Delete(int nro);
         List<Carrera> GetByFilters(List<Parametro> criterios);
         bool SaveCarrera(Carrera carrera);
-
+        bool UpdateCarrera(Carrera carrera);
         Carrera GetById(int id);
         int GetNumeroCarrera();
+        bool Login(string User, string Password);
     }
 }

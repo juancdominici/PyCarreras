@@ -18,7 +18,6 @@ namespace CarreraWebAPI.Controllers
             servicio = new ServiceFactoryImp().CrearCarreraService();
         }
 
-        // GET api/<CarreraController>/{id}
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -27,9 +26,8 @@ namespace CarreraWebAPI.Controllers
             return Ok(servicio.ObtenerCarreraPorId(id));
         }
 
-        //POST api/<CarreraController>
         [HttpPost("consultar")]
-        public IActionResult GetPresupuestos(List<Parametro> lst)
+        public IActionResult GetCarreras(List<Parametro> lst)
         {
             if (lst == null || lst.Count == 0)
                 return BadRequest("Se requiere una lista de parámetros!");
@@ -37,7 +35,6 @@ namespace CarreraWebAPI.Controllers
             return Ok(servicio.ConsultarCarrera(lst));
         }
 
-        // DELETE api/<CarreraController>/{id}
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

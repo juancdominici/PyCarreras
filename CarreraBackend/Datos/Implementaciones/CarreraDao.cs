@@ -168,11 +168,58 @@ namespace CarreraBackend.Datos.Implementaciones
             return flag;
         }
 
-        public int GetNumeroCarrera()
+        public bool UpdateCarrera(Carrera carrera)
         {
-            SqlCommand cmd = new SqlCommand();
+            SqlTransaction t = null;
+
+            bool flag = true;
             try
             {
+                conexion.Open();
+                t = conexion.BeginTransaction();
+
+                SqlCommand comando = new SqlCommand("SP_ACTUALIZAR_MAESTRO", conexion, t);
+                comando.CommandType = CommandType.StoredProcedure;
+                comando.Parameters.AddWithValue("@ID_CARRERA", carrera.Id);
+                comando.Parameters.AddWithValue("@N_CARRERA", carrera.Nombre);
+                comando.Parameters.AddWithValue("@N_TITULO", carrera.Titulo);
+                
+                comando.ExecuteNonQuery();
+
+                foreach (DetalleCarrera d in carrera.Detalles)
+                {
+                    SqlCommand cmd = new SqlCommand("SP_ACTUALIZAR_DETALLE", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Transaction = t;
+                    cmd.Parameters.AddWithValue("@ID_DETALLE", d.Id);
+                    cmd.Parameters.AddWithValue("@ID_CARRERA", carrera.Id);
+                    cmd.Parameters.AddWithValue("@ANIO_CURSADO", d.AnioCursado);
+                    cmd.Parameters.AddWithValue("@CUATRIMESTRE", d.Cuatrimestre);
+                    cmd.Parameters.AddWithValue("@ID_MATERIA", d.Materia.Id);
+                    cmd.ExecuteNonQuery();
+                }
+                t.Commit();
+            }
+            catch(Exception ex)
+            {
+                t.Rollback();
+                flag = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+            return flag;
+        }
+
+        public int GetNumeroCarrera()
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
                 conexion.Open();
                 cmd.Connection = conexion;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -196,6 +243,40 @@ namespace CarreraBackend.Datos.Implementaciones
             {
                 if (conexion.State == ConnectionState.Open) conexion.Close();
             }
+        }
+        public bool Login(string User, string Password)
+        {
+            bool b = false;
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                conexion.Open();
+                cmd.Connection = conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = "SP_LOGIN";
+
+                // Falta hashear el valor de la password.
+                // Este login es solo para demostración.
+
+                cmd.Parameters.AddWithValue("@USUARIO", User);
+                cmd.Parameters.AddWithValue("@CONTRASENA", Password);
+
+                SqlParameter param = new SqlParameter("@USUARIOS", SqlDbType.Int);
+                param.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(param);
+
+                cmd.ExecuteNonQuery();
+                if ((int)param.Value == 1) b = true;
+            }
+            catch (SqlException ex)
+            {
+                b = false;
+            }
+            finally
+            {
+                if (conexion.State == ConnectionState.Open) conexion.Close();
+            }
+            return b;
         }
     }
 }

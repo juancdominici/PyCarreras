@@ -9,6 +9,7 @@ namespace CarreraBackend.Entidades
     public class DetalleCarrera
     {
         //PROPIEDADES  
+        public int Id { get; set; }
         public DateTime AnioCursado { get; set; }
         public int Cuatrimestre { get; set; }
         public Materia Materia { get; set; }

@@ -12,8 +12,10 @@ namespace CarreraBackend.Servicios
         bool RegistrarBajaCarrera(int carrera);
         List<Carrera> ConsultarCarrera(List<Parametro> criterios);
         bool GrabarCarrera(Carrera carrera);
+        bool ModificarCarrera(Carrera carrera);
         Carrera ObtenerCarreraPorId(int nro);
         int ObtenerUltimoIdCarrera();
+        bool Login(string User, string Password);
 
     }
 }

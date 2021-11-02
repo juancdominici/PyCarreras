@@ -30,14 +30,10 @@ namespace CarreraFrontend
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -55,35 +51,22 @@ namespace CarreraFrontend
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTitulo);
             this.groupBox1.Controls.Add(this.txtNombre);
-            this.groupBox1.Controls.Add(this.dtpHasta);
-            this.groupBox1.Controls.Add(this.dtpDesde);
             this.groupBox1.Controls.Add(this.btnConsultar);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(775, 222);
+            this.groupBox1.Size = new System.Drawing.Size(775, 124);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criterios de Busqueda";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(375, 74);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 15);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Fecha hasta:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(67, 129);
+            this.label3.Location = new System.Drawing.Point(47, 70);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 15);
             this.label3.TabIndex = 11;
@@ -92,54 +75,31 @@ namespace CarreraFrontend
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 100);
+            this.label2.Location = new System.Drawing.Point(33, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 15);
             this.label2.TabIndex = 10;
             this.label2.Text = "Nombre:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 15);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Fecha desde:";
-            // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(113, 126);
+            this.txtTitulo.Location = new System.Drawing.Point(93, 67);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(568, 23);
+            this.txtTitulo.Size = new System.Drawing.Size(520, 23);
             this.txtTitulo.TabIndex = 8;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(113, 97);
+            this.txtNombre.Location = new System.Drawing.Point(93, 38);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(568, 23);
+            this.txtNombre.Size = new System.Drawing.Size(520, 23);
             this.txtNombre.TabIndex = 7;
-            // 
-            // dtpHasta
-            // 
-            this.dtpHasta.Location = new System.Drawing.Point(453, 68);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(228, 23);
-            this.dtpHasta.TabIndex = 6;
-            // 
-            // dtpDesde
-            // 
-            this.dtpDesde.Location = new System.Drawing.Point(113, 68);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(228, 23);
-            this.dtpDesde.TabIndex = 5;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(646, 174);
+            this.btnConsultar.Location = new System.Drawing.Point(630, 38);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(123, 42);
+            this.btnConsultar.Size = new System.Drawing.Size(123, 52);
             this.btnConsultar.TabIndex = 4;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
@@ -178,9 +138,9 @@ namespace CarreraFrontend
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvResultados);
-            this.groupBox2.Location = new System.Drawing.Point(13, 241);
+            this.groupBox2.Location = new System.Drawing.Point(13, 143);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 160);
+            this.groupBox2.Size = new System.Drawing.Size(775, 258);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Resultados";
@@ -198,7 +158,7 @@ namespace CarreraFrontend
             this.dgvResultados.Location = new System.Drawing.Point(7, 23);
             this.dgvResultados.Name = "dgvResultados";
             this.dgvResultados.RowTemplate.Height = 25;
-            this.dgvResultados.Size = new System.Drawing.Size(762, 131);
+            this.dgvResultados.Size = new System.Drawing.Size(762, 229);
             this.dgvResultados.TabIndex = 0;
             this.dgvResultados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -256,14 +216,10 @@ namespace CarreraFrontend
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dgvResultados;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.DateTimePicker dtpHasta;
-        private System.Windows.Forms.DateTimePicker dtpDesde;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn titulo;

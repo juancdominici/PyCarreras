@@ -43,6 +43,13 @@ namespace CarreraBackend.Servicios
             return carreraDao.GetNumeroCarrera();
         }
 
-
+        public bool ModificarCarrera(Carrera carrera)
+        {
+            return carreraDao.UpdateCarrera(carrera);
+        }
+        public bool Login(string User, string Password)
+        {
+            return carreraDao.Login(User, Password);
+        }
     }
 }

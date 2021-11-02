@@ -58,6 +58,7 @@ namespace CarreraFrontend
             string url = "https://localhost:44373/api/Carrera/" + nro.ToString();
             var resultado = await ClienteSingleton.GetInstancia().GetAsync(url);
             this.carrera = JsonConvert.DeserializeObject<Carrera>(resultado);
+            this.carrera.Id = nro.ToString();
 
             txtNombre.Text = carrera.Nombre;
             txtTitulo.Text = carrera.Titulo;
@@ -164,7 +165,20 @@ namespace CarreraFrontend
             carrera.Nombre = txtNombre.Text;
             carrera.Titulo = txtTitulo.Text;
 
-            if (servicio.GrabarCarrera(carrera))
+            if (modo.Equals(Accion.UPDATE))
+            {
+                
+                if (servicio.ModificarCarrera(carrera))
+                {
+                    MessageBox.Show("Carrera modificada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar modificar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else if (servicio.GrabarCarrera(carrera))
             {
                 MessageBox.Show("Carrera guardada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Dispose();
