@@ -128,7 +128,7 @@ namespace CarreraBackend.Datos.Implementaciones
                 SqlCommand comando = new SqlCommand("SP_INSERTAR_MAESTRO", conexion, t);
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@N_CARRERA", carrera.Nombre);
-                comando.Parameters.AddWithValue("N_TITULO", carrera.Titulo);
+                comando.Parameters.AddWithValue("@N_TITULO", carrera.Titulo);
                 SqlParameter param = new SqlParameter();
                 param.ParameterName = "@ID_CARRERA";
                 param.SqlDbType = SqlDbType.Int;

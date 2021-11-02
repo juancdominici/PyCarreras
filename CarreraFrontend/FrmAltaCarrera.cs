@@ -78,7 +78,8 @@ namespace CarreraFrontend
         {
             List<Materia> lst = servicioMateria.ConsultarAsignatura();
             cboMateria.DataSource = lst;
-            cboMateria.DisplayMember = "N_MATERIA";
+            cboMateria.ValueMember = "Id";
+            cboMateria.DisplayMember = "Nombre";
         }
        
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -99,7 +100,7 @@ namespace CarreraFrontend
             DetalleCarrera item = new DetalleCarrera();
             item.AnioCursado = dtpAnioCursado.Value;
             item.Cuatrimestre = Convert.ToInt32(txtCuatrimestre.Text);
-            item.Materia = new Materia(cboMateria.SelectedIndex, cboMateria.SelectedItem.ToString());
+            item.Materia = new Materia((int)cboMateria.SelectedValue, cboMateria.SelectedItem.ToString());
 
             carrera.AgregarDetalle(item);
 
@@ -160,7 +161,6 @@ namespace CarreraFrontend
                 return;
             }
 
-            //pasar datos al objeto 
             carrera.Nombre = txtNombre.Text;
             carrera.Titulo = txtTitulo.Text;
 

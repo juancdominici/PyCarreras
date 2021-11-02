@@ -165,7 +165,7 @@ namespace CarreraFrontend
             // 
             this.dtpAnioCursado.Location = new System.Drawing.Point(169, 43);
             this.dtpAnioCursado.Name = "dtpAnioCursado";
-            this.dtpAnioCursado.Size = new System.Drawing.Size(176, 23);
+            this.dtpAnioCursado.Size = new System.Drawing.Size(397, 23);
             this.dtpAnioCursado.TabIndex = 32;
             // 
             // txtTitulo
