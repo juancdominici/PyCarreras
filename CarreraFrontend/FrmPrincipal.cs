@@ -1,6 +1,7 @@
 ﻿using CarreraBackend.Servicios;
 using CarreraFrontend.Cliente;
 using Newtonsoft.Json;
+using ReporteCarrera;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,8 +32,8 @@ namespace CarreraFrontend
 
         private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        //    FrmReporte frmNuevo = new FrmReporte();
-        //    frmNuevo.ShowDialog();
+            FrmReporte frmNuevo = new FrmReporte();
+            frmNuevo.ShowDialog();
         }
 
 
@@ -64,7 +65,11 @@ namespace CarreraFrontend
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            menuStrip.Enabled = false;
+            archivoToolStripMenuItem.Enabled = true;
+            soporteToolStripMenuItem.Enabled = false;
+            transaccionToolStripMenuItem.Enabled = false;
+            reportesToolStripMenuItem.Enabled = false;
+            ayudaToolStripMenuItem.Enabled = false;
         }
 
         private async void btnIniciarSesion_Click(object sender, EventArgs e)
@@ -89,13 +94,27 @@ namespace CarreraFrontend
 
             if (Convert.ToBoolean(res))
             {
-                menuStrip.Enabled = true;
-                MessageBox.Show("Conectado!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                soporteToolStripMenuItem.Enabled = true;
+                transaccionToolStripMenuItem.Enabled = true;
+                reportesToolStripMenuItem.Enabled = true;
+                ayudaToolStripMenuItem.Enabled = true;
+            
+            MessageBox.Show("Conectado!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
             else
             {
                 MessageBox.Show("No tiene permisos!", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarreraBackend\CarreraBackend.csproj" />
+    <ProjectReference Include="..\ReporteCarrera\ReporteCarrera.csproj" />
   </ItemGroup>
 
   <ItemGroup>
