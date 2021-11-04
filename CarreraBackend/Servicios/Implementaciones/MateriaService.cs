@@ -36,9 +36,9 @@ namespace CarreraBackend.Servicios.Implementaciones
         {
             return dao.UpdateMateria(materia);
         }
-        public bool BorrarMateria(Materia materia)
+        public bool BorrarMateria(int id)
         {
-            return dao.DeleteMateria(materia);
+            return dao.DeleteMateria(id);
         }
     }
 }

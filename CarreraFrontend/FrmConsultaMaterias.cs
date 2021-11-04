@@ -1,6 +1,8 @@
 ﻿using CarreraBackend.Entidades;
 using CarreraBackend.Servicios;
 using CarreraBackend.Servicios.Interfaces;
+using CarreraFrontend.Cliente;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,9 +28,14 @@ namespace CarreraFrontend
         }
 
 
-        private void FrmConsultaMateriasLoad(object sender, EventArgs e)
+        private async void FrmConsultaMateriasLoad(object sender, EventArgs e)
         {
-            var list = servicio.ConsultarAsignatura();
+            List<Materia> list = null;
+            string url = "https://localhost:44373/api/Materia/consultar";
+            var resultado = await ClienteSingleton.GetInstancia().GetAsync(url);
+
+            list = JsonConvert.DeserializeObject<List<Materia>>(resultado);
+
             for (int i = 0; i < list.Count; i++)
             {
                 DataGridViewRow newRow = new DataGridViewRow();
@@ -60,9 +67,25 @@ namespace CarreraFrontend
             else ModificarMateria();
         }
 
-        private void ModificarMateria()
+        private async void ModificarMateria()
         {
-            if (servicio.ModificarMateria(new Materia((int)dtvDetalles.CurrentRow.Cells[0].Value, txtNombre.Text)))
+            List<Parametro> parametros = new List<Parametro>();
+
+
+            var val1 = dtvDetalles.CurrentRow.Cells[0].Value;
+            parametros.Add(new Parametro("Id", val1));
+
+            var val2 = txtNombre.Text;
+            parametros.Add(new Parametro("Nombre", val2));
+
+
+            string json = JsonConvert.SerializeObject(parametros);
+            string url = "https://localhost:44373/api/Materia/modificar";
+            var res = await ClienteSingleton.GetInstancia().PostAsync(url, json);
+
+            bool respuesta = JsonConvert.DeserializeObject<bool>(res);
+
+            if (respuesta)
             {
                 MessageBox.Show("Materia modificada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dtvDetalles.CurrentCell.Value = txtNombre.Text;
@@ -79,9 +102,25 @@ namespace CarreraFrontend
 
         }
 
-        private void CargarMateria()
+        private async void CargarMateria()
         {
-            if (servicio.GrabarMateria(new Materia(servicio.ObtenerUltimoIdMateria(), txtNombre.Text)))
+            List<Parametro> parametros = new List<Parametro>();
+
+
+            var val1 = servicio.ObtenerUltimoIdMateria();
+            parametros.Add(new Parametro("Id", val1));
+
+            var val2 = txtNombre.Text;
+            parametros.Add(new Parametro("Nombre", val2));
+
+
+            string json = JsonConvert.SerializeObject(parametros);
+            string url = "https://localhost:44373/api/Materia/cargar";
+            var res = await ClienteSingleton.GetInstancia().PostAsync(url, json);
+
+            bool respuesta = JsonConvert.DeserializeObject<bool>(res);
+
+            if (respuesta)
             {
                 MessageBox.Show("Materia guardada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataGridViewRow newRow = new DataGridViewRow();
@@ -98,9 +137,6 @@ namespace CarreraFrontend
                 MessageBox.Show("Error al intentar grabar la materia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-
-
-
         }
 
         private bool ExisteProductoEnGrilla(string text)
@@ -112,12 +148,17 @@ namespace CarreraFrontend
             }
             return false;
         }
-        private void dtvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dtvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             if (dtvDetalles.CurrentCell.ColumnIndex == 2)
             {
-                if (servicio.BorrarMateria(new Materia((int)dtvDetalles.CurrentRow.Cells[0].Value, txtNombre.Text)))
+                string url = "https://localhost:44373/api/Materia/" + dtvDetalles.CurrentRow.Cells[0].Value;
+                var res = await ClienteSingleton.GetInstancia().DeleteAsync(url);
+
+                bool respuesta = JsonConvert.DeserializeObject<bool>(res);
+
+                if (respuesta)
                 {
                     MessageBox.Show("Materia borrada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     dtvDetalles.Rows.RemoveAt(dtvDetalles.CurrentRow.Index);
@@ -130,12 +171,12 @@ namespace CarreraFrontend
             }
             else
             {
-                
-                    txtNombre.Text = dtvDetalles.SelectedCells[0].Value.ToString();
-                    btnAgregar.Text = "Modificar";
-                    flag = true;
-                    btnCancelar.Enabled = true;
-                
+
+                txtNombre.Text = dtvDetalles.SelectedCells[0].Value.ToString();
+                btnAgregar.Text = "Modificar";
+                flag = true;
+                btnCancelar.Enabled = true;
+
             }
         }
 

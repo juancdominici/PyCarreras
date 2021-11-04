@@ -86,7 +86,7 @@ namespace CarreraFrontend
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -167,9 +167,9 @@ namespace CarreraFrontend
             this.txtUsuario.Location = new System.Drawing.Point(178, 134);
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.PlaceholderText = "USUARIO";
             this.txtUsuario.Size = new System.Drawing.Size(377, 21);
             this.txtUsuario.TabIndex = 3;
-            this.txtUsuario.Text = "USUARIO";
             // 
             // txtContrasena
             // 
@@ -177,12 +177,13 @@ namespace CarreraFrontend
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasena.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(178, 207);
-            this.txtContrasena.Multiline = true;
+            this.txtContrasena.Location = new System.Drawing.Point(178, 206);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(377, 23);
+            this.txtContrasena.PasswordChar = '●';
+            this.txtContrasena.PlaceholderText = "CONTRASEÑA";
+            this.txtContrasena.Size = new System.Drawing.Size(377, 20);
             this.txtContrasena.TabIndex = 4;
-            this.txtContrasena.Text = "CONTRASEÑA";
+            this.txtContrasena.UseSystemPasswordChar = true;
             // 
             // btnIniciarSesion
             // 

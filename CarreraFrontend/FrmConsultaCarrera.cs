@@ -62,6 +62,7 @@ namespace CarreraFrontend
                                         Carrera.Titulo
                  }); ;
             }
+            //COMENTARIO
 
         }
 
@@ -72,14 +73,17 @@ namespace CarreraFrontend
             frm.ShowDialog();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvResultados.CurrentRow;
             if (row != null)
             {
                 if (MessageBox.Show("Seguro que desea eliminar la carrera seleccionada?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    bool respuesta = servicio.RegistrarBajaCarrera(Convert.ToInt32(row.Cells[0].Value));
+                    string url = "https://localhost:44373/api/Carrera/" + row.Cells[0].Value;
+                    var res = await ClienteSingleton.GetInstancia().DeleteAsync(url);
+
+                    bool respuesta = JsonConvert.DeserializeObject<bool>(res);
 
                     if (respuesta)
                     {

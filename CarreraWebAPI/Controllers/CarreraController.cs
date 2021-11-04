@@ -1,6 +1,8 @@
-﻿using CarreraBackend.Servicios;
+﻿using CarreraBackend.Entidades;
+using CarreraBackend.Servicios;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,6 +35,30 @@ namespace CarreraWebAPI.Controllers
                 return BadRequest("Se requiere una lista de parámetros!");
 
             return Ok(servicio.ConsultarCarrera(lst));
+        }
+
+        [HttpPost("cargar")]
+        public IActionResult Post(List<Parametro> lst)
+        {
+            var carrera = new Carrera();
+            var detalles = JsonConvert.DeserializeObject<List<DetalleCarrera>>(lst[3].Valor.ToString());
+            carrera.Id = lst[0].Valor.ToString();
+            carrera.Nombre = lst[1].Valor.ToString();
+            carrera.Titulo = lst[2].Valor.ToString();
+            carrera.Detalles = detalles;
+            return Ok(servicio.GrabarCarrera(carrera));
+        }
+
+        [HttpPost("modificar")]
+        public IActionResult Update(List<Parametro> lst)
+        {
+            var carrera = new Carrera();
+            var detalles = JsonConvert.DeserializeObject<List<DetalleCarrera>>(lst[3].Valor.ToString());
+            carrera.Id = lst[0].Valor.ToString();
+            carrera.Nombre = lst[1].Valor.ToString();
+            carrera.Titulo = lst[2].Valor.ToString();
+            carrera.Detalles = detalles;
+            return Ok(servicio.ModificarCarrera(carrera));
         }
 
         [HttpDelete("{id}")]

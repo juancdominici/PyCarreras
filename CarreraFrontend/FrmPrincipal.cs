@@ -1,7 +1,7 @@
 ﻿using CarreraBackend.Servicios;
 using CarreraFrontend.Cliente;
 using Newtonsoft.Json;
-using ReporteCarrera;
+using CarreraReporte;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

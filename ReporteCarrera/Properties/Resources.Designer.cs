@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace ReporteCarrera.Properties
+namespace CarreraReporte.Properties
 {
     /// <summary>
     ///   Clase de recurso fuertemente tipado para buscar cadenas traducidas, etc.

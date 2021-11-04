@@ -25,7 +25,6 @@ namespace CarreraFrontend
     public partial class FrmAltaCarrera : Form
     {
         private IService servicio;
-        private IMateriaService servicioMateria;
         private Accion modo;
         Carrera carrera = new Carrera();
         DetalleCarrera dc = new DetalleCarrera();
@@ -34,13 +33,14 @@ namespace CarreraFrontend
         {
             InitializeComponent();
             servicio = new ServiceFactoryImp().CrearCarreraService();
-            servicioMateria = new ServiceFactoryImp().CrearMateriaService();
             this.modo = modo;
             lblNro.Text = "Carrera #" + nro + ":";
 
 
             if (modo.Equals(Accion.READ))
             {
+                txtNombre.Enabled = false;
+                txtTitulo.Enabled = false;
                 gpbMaterias.Enabled = false;
                 btnAceptar.Enabled = false;
                 this.Text = "Viendo Carrera";
@@ -75,10 +75,15 @@ namespace CarreraFrontend
             CargarCombo();
         }
 
-        private void CargarCombo()
+        private async void CargarCombo()
         {
-            List<Materia> lst = servicioMateria.ConsultarAsignatura();
-            cboMateria.DataSource = lst;
+            List<Materia> list = null;
+            string url = "https://localhost:44373/api/Materia/consultar";
+            var resultado = await ClienteSingleton.GetInstancia().GetAsync(url);
+
+            list = JsonConvert.DeserializeObject<List<Materia>>(resultado);
+
+            cboMateria.DataSource = list;
             cboMateria.ValueMember = "Id";
             cboMateria.DisplayMember = "Nombre";
         }
@@ -141,7 +146,7 @@ namespace CarreraFrontend
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        private async void btnAceptar_Click(object sender, EventArgs e)
         {
             if (dtvDetalles.Rows.Count == 0)
             {
@@ -167,8 +172,28 @@ namespace CarreraFrontend
 
             if (modo.Equals(Accion.UPDATE))
             {
-                
-                if (servicio.ModificarCarrera(carrera))
+                ///
+                List<Parametro> parametros = new List<Parametro>();
+
+                var val1 = carrera.Id;
+                parametros.Add(new Parametro("Id", val1));
+
+                var val2 = txtNombre.Text;
+                parametros.Add(new Parametro("Nombre", val2));
+
+                var val3 = txtTitulo.Text;
+                parametros.Add(new Parametro("Titulo", val3));
+
+                var val4 = JsonConvert.SerializeObject(carrera.Detalles, Formatting.Indented);
+                parametros.Add(new Parametro("Detalles", val4));
+
+                string json = JsonConvert.SerializeObject(parametros);
+                string url = "https://localhost:44373/api/Carrera/modificar";
+                var res = await ClienteSingleton.GetInstancia().PostAsync(url, json);
+
+                bool respuesta = JsonConvert.DeserializeObject<bool>(res);
+
+                if (respuesta)
                 {
                     MessageBox.Show("Carrera modificada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Dispose();
@@ -178,14 +203,38 @@ namespace CarreraFrontend
                     MessageBox.Show("Error al intentar modificar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (servicio.GrabarCarrera(carrera))
-            {
-                MessageBox.Show("Carrera guardada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Dispose();
-            }
             else
             {
-                MessageBox.Show("Error al intentar grabar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ///
+                List<Parametro> parametros = new List<Parametro>();
+
+                var val1 = servicio.ObtenerUltimoIdCarrera();
+                parametros.Add(new Parametro("Id", val1));
+
+                var val2 = txtNombre.Text;
+                parametros.Add(new Parametro("Nombre", val2));
+
+                var val3 = txtTitulo.Text;
+                parametros.Add(new Parametro("Titulo", val3));
+
+                var val4 = JsonConvert.SerializeObject(carrera.Detalles, Formatting.Indented);
+                parametros.Add(new Parametro("Detalles", val4));
+
+                string json = JsonConvert.SerializeObject(parametros);
+                string url = "https://localhost:44373/api/Carrera/cargar";
+                var res = await ClienteSingleton.GetInstancia().PostAsync(url, json);
+
+                bool respuesta = JsonConvert.DeserializeObject<bool>(res);
+
+                if (respuesta)
+                {
+                    MessageBox.Show("Carrera guardada con éxito!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Error al intentar grabar la carrera", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

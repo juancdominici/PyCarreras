@@ -95,7 +95,7 @@ namespace CarreraBackend.Datos.Implementaciones
             }
             return flag;
         }
-        public bool DeleteMateria(Materia materia)
+        public bool DeleteMateria(int id)
         {
             SqlTransaction t = null;
 
@@ -107,7 +107,7 @@ namespace CarreraBackend.Datos.Implementaciones
 
                 SqlCommand comando = new SqlCommand("SP_BORRAR_MATERIA", conexion, t);
                 comando.CommandType = CommandType.StoredProcedure;
-                comando.Parameters.AddWithValue("@ID_MATERIA", materia.Id);
+                comando.Parameters.AddWithValue("@ID_MATERIA", id);
                 comando.ExecuteNonQuery();
 
                 t.Commit();

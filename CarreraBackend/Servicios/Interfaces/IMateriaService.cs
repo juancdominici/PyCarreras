@@ -13,6 +13,6 @@ namespace CarreraBackend.Servicios.Interfaces
         int ObtenerUltimoIdMateria();
         bool GrabarMateria(Materia materia);
         bool ModificarMateria(Materia materia);
-        bool BorrarMateria(Materia materia);
+        bool BorrarMateria(int id);
     }
 }
