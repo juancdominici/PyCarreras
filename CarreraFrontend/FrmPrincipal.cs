@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReporteCarrera.Reportes;
 
 namespace CarreraFrontend
 {
@@ -32,7 +33,7 @@ namespace CarreraFrontend
 
         private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmReporte frmNuevo = new FrmReporte();
+            FrmReportePlanesEstudio frmNuevo = new FrmReportePlanesEstudio();
             frmNuevo.ShowDialog();
         }
 

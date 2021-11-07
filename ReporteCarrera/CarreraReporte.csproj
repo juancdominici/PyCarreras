@@ -83,23 +83,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Reportes\FrmReporte.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\FrmReporte.Designer.cs">
-      <DependentUpon>FrmReporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\DsCarrera.Designer.cs">
+    <Compile Include="Reportes\DSCarreras.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DsCarrera.xsd</DependentUpon>
+      <DependentUpon>DSCarreras.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\FrmReportePlanesEstudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReportePlanesEstudio.Designer.cs">
+      <DependentUpon>FrmReportePlanesEstudio.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="Reportes\FrmReporte.resx">
-      <DependentUpon>FrmReporte.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -109,19 +106,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Reportes\Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\FrmReportePlanesEstudio.resx">
+      <DependentUpon>FrmReportePlanesEstudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptCarreras.rdlc" />
     <None Include="packages.config" />
-    <None Include="Reportes\DsCarrera.xsc">
-      <DependentUpon>DsCarrera.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DsCarrera.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DsCarrera.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DsCarrera.xss">
-      <DependentUpon>DsCarrera.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,6 +120,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reportes\DSCarreras.xsc">
+      <DependentUpon>DSCarreras.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DSCarreras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSCarreras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DSCarreras.xss">
+      <DependentUpon>DSCarreras.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
