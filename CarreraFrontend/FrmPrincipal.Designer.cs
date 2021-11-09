@@ -47,9 +47,9 @@ namespace CarreraFrontend
             this.btnIniciarSesion = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.linea1 = new System.Windows.Forms.Label();
+            this.linea2 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -221,43 +221,44 @@ namespace CarreraFrontend
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
-            // label1
+            // linea1
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(178, 158);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(377, 18);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "__________________________________________________________________________";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.linea1.BackColor = System.Drawing.Color.Transparent;
+            this.linea1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.linea1.ForeColor = System.Drawing.Color.DimGray;
+            this.linea1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linea1.Location = new System.Drawing.Point(178, 158);
+            this.linea1.Name = "linea1";
+            this.linea1.Size = new System.Drawing.Size(377, 45);
+            this.linea1.TabIndex = 9;
+            this.linea1.Text = "__________________________________________________________________________";
+            this.linea1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linea1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // label2
+            // linea2
             // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(178, 224);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(377, 18);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "__________________________________________________________________________";
+            this.linea2.BackColor = System.Drawing.Color.Transparent;
+            this.linea2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.linea2.ForeColor = System.Drawing.Color.DimGray;
+            this.linea2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.linea2.Location = new System.Drawing.Point(178, 224);
+            this.linea2.Name = "linea2";
+            this.linea2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.linea2.Size = new System.Drawing.Size(377, 48);
+            this.linea2.TabIndex = 10;
+            this.linea2.Text = "__________________________________________________________________________";
+            this.linea2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label3
+            // lblTitulo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(315, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 33);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "LOGIN";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitulo.Location = new System.Drawing.Point(315, 60);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(100, 33);
+            this.lblTitulo.TabIndex = 11;
+            this.lblTitulo.Text = "LOGIN";
             // 
             // FrmPrincipal
             // 
@@ -265,17 +266,16 @@ namespace CarreraFrontend
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(614, 343);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.linea1);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.linea2);
             this.Controls.Add(this.txtContrasena);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPrincipal";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
@@ -307,8 +307,8 @@ namespace CarreraFrontend
         private System.Windows.Forms.Button btnIniciarSesion;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label linea1;
+        private System.Windows.Forms.Label linea2;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

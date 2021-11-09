@@ -16,6 +16,13 @@ namespace ReporteCarrera.Reportes
         public FrmReportePlanesEstudio()
         {
             InitializeComponent();
+            dtpDesde.Format = DateTimePickerFormat.Custom;
+            dtpDesde.CustomFormat = "yyyy";
+            dtpDesde.ShowUpDown = true;
+
+            dtpHasta.Format = DateTimePickerFormat.Custom;
+            dtpHasta.CustomFormat = "yyyy";
+            dtpHasta.ShowUpDown = true;
         }
 
         private void FrmReportePlanesEstudio_Load(object sender, EventArgs e)

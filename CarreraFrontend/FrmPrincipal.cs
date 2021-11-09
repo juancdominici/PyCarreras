@@ -99,8 +99,17 @@ namespace CarreraFrontend
                 transaccionToolStripMenuItem.Enabled = true;
                 reportesToolStripMenuItem.Enabled = true;
                 ayudaToolStripMenuItem.Enabled = true;
-            
-            MessageBox.Show("Conectado!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btnIniciarSesion.Visible = false;
+                txtUsuario.Visible = false;
+                txtContrasena.Visible = false;
+                lblTitulo.Visible = false;
+                linea1.Text = "Trabajo Final";
+                linea1.Font = new Font("Segoe UI", 16, FontStyle.Italic);
+                linea2.Text = "de Programación II";
+                linea2.Font = new Font("Segoe UI", 16, FontStyle.Italic);
+
+
+                MessageBox.Show("Conectado!", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
             else
             {

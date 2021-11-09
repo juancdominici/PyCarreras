@@ -59,16 +59,18 @@ namespace ReporteCarrera.Reportes
             // 
             // dtpDesde
             // 
-            this.dtpDesde.Location = new System.Drawing.Point(30, 54);
+            this.dtpDesde.CustomFormat = "";
+            this.dtpDesde.Location = new System.Drawing.Point(252, 42);
             this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(360, 23);
+            this.dtpDesde.Size = new System.Drawing.Size(91, 23);
             this.dtpDesde.TabIndex = 0;
             // 
             // dtpHasta
             // 
-            this.dtpHasta.Location = new System.Drawing.Point(404, 54);
+            this.dtpHasta.CustomFormat = "";
+            this.dtpHasta.Location = new System.Drawing.Point(504, 42);
             this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(349, 23);
+            this.dtpHasta.Size = new System.Drawing.Size(80, 23);
             this.dtpHasta.TabIndex = 1;
             // 
             // btnGenerar
@@ -77,7 +79,7 @@ namespace ReporteCarrera.Reportes
             this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerar.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.btnGenerar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnGenerar.Location = new System.Drawing.Point(776, 18);
+            this.btnGenerar.Location = new System.Drawing.Point(776, 24);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(97, 59);
             this.btnGenerar.TabIndex = 2;
@@ -103,7 +105,7 @@ namespace ReporteCarrera.Reportes
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(400, 29);
+            this.label2.Location = new System.Drawing.Point(400, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 17);
             this.label2.TabIndex = 4;
@@ -112,7 +114,7 @@ namespace ReporteCarrera.Reportes
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 29);
+            this.label1.Location = new System.Drawing.Point(148, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 17);
             this.label1.TabIndex = 3;
