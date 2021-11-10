@@ -34,11 +34,6 @@ namespace CarreraFrontend
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.dtvDetalles = new System.Windows.Forms.DataGridView();
-            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aniodecursado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cuatrimestre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.cboMateria = new System.Windows.Forms.ComboBox();
             this.dtpAnioCursado = new System.Windows.Forms.DateTimePicker();
@@ -51,6 +46,11 @@ namespace CarreraFrontend
             this.txtCuatrimestre = new System.Windows.Forms.TextBox();
             this.lblCuatrimestre = new System.Windows.Forms.Label();
             this.gpbMaterias = new System.Windows.Forms.GroupBox();
+            this.detalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aniodecursado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuatrimestre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.acciones = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvDetalles)).BeginInit();
             this.gpbMaterias.SuspendLayout();
             this.SuspendLayout();
@@ -110,49 +110,6 @@ namespace CarreraFrontend
             this.dtvDetalles.TabIndex = 35;
             this.dtvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtvDetalles_CellContentClick);
             // 
-            // detalle
-            // 
-            this.detalle.HeaderText = "Column1";
-            this.detalle.MinimumWidth = 6;
-            this.detalle.Name = "detalle";
-            this.detalle.ReadOnly = true;
-            this.detalle.Visible = false;
-            // 
-            // aniodecursado
-            // 
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.aniodecursado.DefaultCellStyle = dataGridViewCellStyle1;
-            this.aniodecursado.HeaderText = "Año de Cursado";
-            this.aniodecursado.MinimumWidth = 6;
-            this.aniodecursado.Name = "aniodecursado";
-            this.aniodecursado.ReadOnly = true;
-            // 
-            // cuatrimestre
-            // 
-            this.cuatrimestre.HeaderText = "Cuatrimestre";
-            this.cuatrimestre.MinimumWidth = 6;
-            this.cuatrimestre.Name = "cuatrimestre";
-            this.cuatrimestre.ReadOnly = true;
-            // 
-            // materias
-            // 
-            this.materias.HeaderText = "Materias";
-            this.materias.MinimumWidth = 6;
-            this.materias.Name = "materias";
-            this.materias.ReadOnly = true;
-            // 
-            // acciones
-            // 
-            this.acciones.HeaderText = "Acciones";
-            this.acciones.MinimumWidth = 6;
-            this.acciones.Name = "acciones";
-            this.acciones.ReadOnly = true;
-            this.acciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.acciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.acciones.Text = "Quitar";
-            this.acciones.UseColumnTextForButtonValue = true;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
@@ -161,7 +118,7 @@ namespace CarreraFrontend
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAgregar.ForeColor = System.Drawing.Color.LightGray;
-            this.btnAgregar.Location = new System.Drawing.Point(572, 83);
+            this.btnAgregar.Location = new System.Drawing.Point(572, 78);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(134, 28);
             this.btnAgregar.TabIndex = 34;
@@ -175,7 +132,7 @@ namespace CarreraFrontend
             this.cboMateria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMateria.ForeColor = System.Drawing.Color.LightGray;
             this.cboMateria.FormattingEnabled = true;
-            this.cboMateria.Location = new System.Drawing.Point(333, 83);
+            this.cboMateria.Location = new System.Drawing.Point(333, 80);
             this.cboMateria.Name = "cboMateria";
             this.cboMateria.Size = new System.Drawing.Size(233, 25);
             this.cboMateria.TabIndex = 33;
@@ -213,11 +170,11 @@ namespace CarreraFrontend
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.label4.Location = new System.Drawing.Point(41, 42);
+            this.label4.Location = new System.Drawing.Point(33, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 21);
+            this.label4.Size = new System.Drawing.Size(146, 21);
             this.label4.TabIndex = 29;
-            this.label4.Text = "Año de Cursado";
+            this.label4.Text = "Inicio de Cursado";
             // 
             // lblTitulo
             // 
@@ -252,7 +209,7 @@ namespace CarreraFrontend
             // txtCuatrimestre
             // 
             this.txtCuatrimestre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.txtCuatrimestre.Location = new System.Drawing.Point(185, 83);
+            this.txtCuatrimestre.Location = new System.Drawing.Point(185, 80);
             this.txtCuatrimestre.Multiline = true;
             this.txtCuatrimestre.Name = "txtCuatrimestre";
             this.txtCuatrimestre.Size = new System.Drawing.Size(144, 25);
@@ -263,7 +220,7 @@ namespace CarreraFrontend
             this.lblCuatrimestre.AutoSize = true;
             this.lblCuatrimestre.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCuatrimestre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.lblCuatrimestre.Location = new System.Drawing.Point(41, 82);
+            this.lblCuatrimestre.Location = new System.Drawing.Point(67, 82);
             this.lblCuatrimestre.Name = "lblCuatrimestre";
             this.lblCuatrimestre.Size = new System.Drawing.Size(112, 21);
             this.lblCuatrimestre.TabIndex = 39;
@@ -287,6 +244,49 @@ namespace CarreraFrontend
             this.gpbMaterias.TabIndex = 40;
             this.gpbMaterias.TabStop = false;
             this.gpbMaterias.Text = "Materias";
+            // 
+            // detalle
+            // 
+            this.detalle.HeaderText = "Column1";
+            this.detalle.MinimumWidth = 6;
+            this.detalle.Name = "detalle";
+            this.detalle.ReadOnly = true;
+            this.detalle.Visible = false;
+            // 
+            // aniodecursado
+            // 
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.aniodecursado.DefaultCellStyle = dataGridViewCellStyle1;
+            this.aniodecursado.HeaderText = "Fecha de Cursado";
+            this.aniodecursado.MinimumWidth = 6;
+            this.aniodecursado.Name = "aniodecursado";
+            this.aniodecursado.ReadOnly = true;
+            // 
+            // cuatrimestre
+            // 
+            this.cuatrimestre.HeaderText = "Cuatrimestre";
+            this.cuatrimestre.MinimumWidth = 6;
+            this.cuatrimestre.Name = "cuatrimestre";
+            this.cuatrimestre.ReadOnly = true;
+            // 
+            // materias
+            // 
+            this.materias.HeaderText = "Materias";
+            this.materias.MinimumWidth = 6;
+            this.materias.Name = "materias";
+            this.materias.ReadOnly = true;
+            // 
+            // acciones
+            // 
+            this.acciones.HeaderText = "Acciones";
+            this.acciones.MinimumWidth = 6;
+            this.acciones.Name = "acciones";
+            this.acciones.ReadOnly = true;
+            this.acciones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.acciones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.acciones.Text = "Quitar";
+            this.acciones.UseColumnTextForButtonValue = true;
             // 
             // FrmAltaCarrera
             // 
